@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard.component';
 import { CommonModule } from '@angular/common';
-import { httpInterceptorProviders } from '../core/http-interceptors';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 

@@ -1,6 +1,5 @@
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { UntilDestroy } from '@ngneat/until-destroy';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { WeatherService } from '../core/services'
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -45,7 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.weatherService.getWeatherByCityCountry(city, country, apiKey)
     .subscribe(res => {
       this.weatherQueryRes = res;
-      this.isLoaded;
+      this.isLoaded = true;
     },
     error => {
       switch (error.status) {
