@@ -1,0 +1,48 @@
+<div class="main-content">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Weather Query System</a>
+  </nav>
+
+  <main role="main" class="container">
+    <form [formGroup]="weatherQueryForm" (ngSubmit)="onSubmitRequest()">
+      <div class="form-row">
+        <div class="form-group col-md-4 mb-3">
+          <label>
+            City:
+            <input class="form-control" type="text" formControlName="city">
+          </label>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label>
+            Country:
+            <input class="form-control" type="text" formControlName="country">
+          </label>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label>
+            Api key:
+            <select class="form-control" formControlName="apiKey">
+              <option disabled value="">Select a Key</option>
+              <option *ngFor="let apiKey of apiKeys" [value]="apiKey.key">{{ apiKey.keyName }}</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn-outline-primary btn-block" type="submit">Search</button>
+      </div>
+    </form>
+    <div class="container">
+    <div class="card" *ngIf="isLoaded">
+      <div class="card-body">
+        <h5 class="card-title">Weather condition for {{weatherQueryRes.name}}, {{weatherQueryRes.sys.country}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{weatherQueryRes.weather[0].main}}</h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">temperature: {{weatherQueryRes.main.temp}}</li>
+          <li class="list-group-item">feels like: {{weatherQueryRes.main.feels_like}}</li>
+          <li class="list-group-item">Min: {{weatherQueryRes.main.temp_min}}</li>
+          <li class="list-group-item">Max: {{weatherQueryRes.main.temp_max}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </main>
+</div>
