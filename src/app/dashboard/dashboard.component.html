@@ -33,13 +33,13 @@
     <div class="container">
     <div class="card" *ngIf="isLoaded">
       <div class="card-body">
-        <h5 class="card-title">Weather condition for {{weatherQueryRes.name}}, {{weatherQueryRes.sys.country}}</h5>
+        <h5 class="card-title">Weather condition for {{weatherQueryRes.name}}, {{weatherQueryRes.sys.country}} (unit of measurement: metric)</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{weatherQueryRes.weather[0].main}}</h6>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">temperature: {{weatherQueryRes.main.temp}}</li>
-          <li class="list-group-item">feels like: {{weatherQueryRes.main.feels_like}}</li>
-          <li class="list-group-item">Min: {{weatherQueryRes.main.temp_min}}</li>
-          <li class="list-group-item">Max: {{weatherQueryRes.main.temp_max}}</li>
+          <li class="list-group-item">temperature: {{weatherQueryRes.main.temp}} <span>&#8451;</span></li>
+          <li class="list-group-item">feels like: {{weatherQueryRes.main.feels_like}} <span>&#8451;</span></li>
+          <li class="list-group-item">Min: {{weatherQueryRes.main.temp_min}} <span>&#8451;</span></li>
+          <li class="list-group-item">Max: {{weatherQueryRes.main.temp_max}} <span>&#8451;</span></li>
         </ul>
       </div>
     </div>
